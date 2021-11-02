@@ -21,9 +21,9 @@ class Vote:
                  None if it is a null vote
         """
         if self.location_white == 'white' and \
-            self.location_black == 'black':
+                self.location_black == 'black':
             return 1
         elif self.location_black == 'white' and \
-            self.location_white == 'black':
+                self.location_white == 'black':
             return 0
         return None
