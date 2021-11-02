@@ -6,7 +6,7 @@ from Domain.vote import Vote
 class VoteRepository:
 
     def __init__(self):
-        self.storage = {} # storage[x] = votul cu id-ul x
+        self.storage = {}  # storage[x] = votul cu id-ul x
 
     def create(self, vote: Vote) -> None:
         """
@@ -43,7 +43,8 @@ class VoteRepository:
         """
 
         if self.read(vote.id_vote) is None:
-            raise KeyError(f'Nu exista un vot cu id-ul {vote.id_vote} pe care sa-l actualizam.')
+            raise KeyError(
+                f'Nu exista un vot cu id-ul {vote.id_vote} pe care sa-l actualizam.')
 
         self.storage[vote.id_vote] = vote
 
@@ -54,6 +55,7 @@ class VoteRepository:
         :return:
         """
         if self.read(id_vote) is None:
-            raise KeyError(f'Nu exista un vot cu id-ul {id_vote} pe care sa-l stergem.')
+            raise KeyError(
+                f'Nu exista un vot cu id-ul {id_vote} pe care sa-l stergem.')
 
         del self.storage[id_vote]

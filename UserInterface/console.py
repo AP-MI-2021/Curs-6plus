@@ -47,4 +47,3 @@ class Console:
         print('Avem urmatoarele voturi:')
         for vote in self.vote_service.get_all():
             print(vote)
-
