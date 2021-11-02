@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 
 from Domain.vote import Vote
 from Repository.vote_repository import VoteRepository
@@ -24,6 +24,23 @@ class VoteService:
         vote = Vote(id_vote, location_black, location_white)
         # TODO: validate the vote
         self.vote_repository.create(vote)
+
+    def get_tally(self) -> Tuple[int, ...]:
+        """
+
+        :return: tuplu (nr voturi pro, nr voturi contra, nr voturi nule)
+        """
+        tally = [0, 0, 0]
+        for vote in self.vote_repository.read():
+            vote_result = vote.get_result()
+            if vote_result == 1:
+                tally[0] += 1
+            elif vote_result == 0:
+                tally[1] += 1
+            else:
+                tally[2] += 1
+
+        return tuple(tally)
 
     def get_all(self) -> List[Vote]:
         """

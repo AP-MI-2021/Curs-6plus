@@ -19,7 +19,7 @@ class Console:
             if option == '1':
                 self.handle_add_vote()
             elif option == '2':
-                pass
+                self.handle_count_votes()
             elif option == '3':
                 pass
             elif option == 'a':
@@ -47,3 +47,10 @@ class Console:
         print('Avem urmatoarele voturi:')
         for vote in self.vote_service.get_all():
             print(vote)
+
+    def handle_count_votes(self):
+        print('Rezultatul votului este:')
+        result = self.vote_service.get_tally()
+        print(f'Pentru: {result[0]}')
+        print(f'Impotriva: {result[1]}')
+        print(f'Voturi nule: {result[2]}')
