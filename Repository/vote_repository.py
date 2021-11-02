@@ -43,8 +43,8 @@ class VoteRepository:
         """
 
         if self.read(vote.id_vote) is None:
-            raise KeyError(
-                f'Nu exista un vot cu id-ul {vote.id_vote} pe care sa-l actualizam.')
+            msg = f'Nu exista un vot cu id-ul {vote.id_vote} pe care sa-l actualizam.'
+            raise KeyError(msg)
 
         self.storage[vote.id_vote] = vote
 
