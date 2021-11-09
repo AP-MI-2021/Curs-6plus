@@ -1,17 +1,19 @@
 from typing import List, Tuple
 
 from Domain.vote import Vote
-from Repository.vote_repository import VoteRepository
+from Domain.vote_validator import VoteValidator
+from Repository.vote_repository_json import VoteRepositoryJson
 
 
 class VoteService:
 
-    def __init__(self, vote_repository: VoteRepository):
+    def __init__(self, vote_repository: VoteRepositoryJson, vote_validator: VoteValidator):
         """
         TODO
         :param vote_repository:
         """
         self.vote_repository = vote_repository
+        self.vote_validator = vote_validator
 
     def add_vote(self, id_vote, location_black, location_white):
         """
@@ -22,7 +24,7 @@ class VoteService:
         :return:
         """
         vote = Vote(id_vote, location_black, location_white)
-        # TODO: validate the vote
+        self.vote_validator.validate(vote)
         self.vote_repository.create(vote)
 
     def get_tally(self) -> Tuple[int, ...]:

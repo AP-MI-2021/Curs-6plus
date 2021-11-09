@@ -1,9 +1,8 @@
 from typing import Optional, Union, List
-
 from Domain.vote import Vote
 
 
-class VoteRepository:
+class VoteRepositoryInMemory:
 
     def __init__(self):
         self.storage = {}  # storage[x] = votul cu id-ul x
