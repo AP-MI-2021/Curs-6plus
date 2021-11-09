@@ -7,7 +7,8 @@ from Repository.vote_repository_json import VoteRepositoryJson
 
 class VoteService:
 
-    def __init__(self, vote_repository: VoteRepositoryJson, vote_validator: VoteValidator):
+    def __init__(self, vote_repository: VoteRepositoryJson,
+                 vote_validator: VoteValidator):
         """
         TODO
         :param vote_repository:
