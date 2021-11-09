@@ -39,17 +39,18 @@ class Console:
     def handle_add_vote(self):
         try:
             id_vote = input('Dati id-ul votului: ')
-            location_black = input('Dati locatia bilei negre (white / black): ')
-            location_white = input('Dati locatia bilei albe (white / black): ')
+            loc_black = input('Dati locatia bilei'
+                              ' negre (white / black): ')
+            loc_white = input('Dati locatia bilei'
+                              ' albe (white / black): ')
 
-            self.vote_service.add_vote(id_vote, location_black, location_white)
+            self.vote_service.add_vote(id_vote, loc_black, loc_white)
         except KeyError as ke:
             print('Eroare de id:', ke)
         except ValueError as ve:
             print('Probleme cu valorile introduse:', ve)
         except Exception as ex:
             print('Eroare:', ex)
-
 
     def handle_show_votes(self):
         print('Avem urmatoarele voturi:')
