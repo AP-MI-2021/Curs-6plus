@@ -2,12 +2,13 @@ from typing import List, Tuple
 
 from Domain.vote import Vote
 from Domain.vote_validator import VoteValidator
-from Repository.vote_repository_json import VoteRepositoryJson
+from Repository.repository import Repository
+from Repository.repository_json import RepositoryJson
 
 
 class VoteService:
 
-    def __init__(self, vote_repository: VoteRepositoryJson,
+    def __init__(self, vote_repository: Repository,
                  vote_validator: VoteValidator):
         """
         TODO

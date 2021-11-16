@@ -1,12 +1,14 @@
+from Domain.vote import Vote
 from Domain.vote_validator import VoteValidator
-from Repository.vote_repository_inmemory import VoteRepositoryInMemory
-from Repository.vote_repository_json import VoteRepositoryJson
+from Repository.repository_inmemory import RepositoryInMemory
+from Repository.repository_json import RepositoryJson
 from Service.vote_service import VoteService
 from UserInterface.console import Console
 
 
 def main():
-    vote_repository = VoteRepositoryJson('votes.json')
+    vote_repository = RepositoryJson('votes.json')
+
     vote_validator = VoteValidator()
     vote_service = VoteService(vote_repository, vote_validator)
 
